@@ -55,7 +55,7 @@ local function loadScript()
     local VersionText = Instance.new("TextLabel")
     
     -- Set up ScreenGui
-    ScreenGui.Name = "ZypherionGUI"
+    ScreenGui.Name = "SwebScriptGUI"
     ScreenGui.Parent = Player:WaitForChild("PlayerGui")
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.DisplayOrder = 9999
@@ -90,7 +90,7 @@ local function loadScript()
     Title.Position = UDim2.new(0.1, 0, 0, 0)
     Title.Size = UDim2.new(0.8, 0, 1, 0)
     Title.Font = Enum.Font.GothamBold
-    Title.Text = "ZYPHERION"
+    Title.Text = "SWEBSCRIPT"
     Title.TextColor3 = ACCENT_COLOR
     Title.TextSize = 22
     
@@ -154,7 +154,7 @@ local function loadScript()
     ArsenalTitle.Position = UDim2.new(0.05, 0, 0.1, 0)
     ArsenalTitle.Size = UDim2.new(0.6, 0, 0.4, 0)
     ArsenalTitle.Font = Enum.Font.GothamBold
-    ArsenalTitle.Text = "Zypherion Arsenal"
+    ArsenalTitle.Text = "SwebScript Arsenal"
     ArsenalTitle.TextColor3 = TEXT_COLOR
     ArsenalTitle.TextSize = 18
     ArsenalTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -202,7 +202,7 @@ local function loadScript()
     RivalsTitle.Position = UDim2.new(0.05, 0, 0.1, 0)
     RivalsTitle.Size = UDim2.new(0.6, 0, 0.4, 0)
     RivalsTitle.Font = Enum.Font.GothamBold
-    RivalsTitle.Text = "Zypherion Rivals"
+    RivalsTitle.Text = "SwebScript Rivals"
     RivalsTitle.TextColor3 = TEXT_COLOR
     RivalsTitle.TextSize = 18
     RivalsTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -240,7 +240,7 @@ local function loadScript()
     FooterText.Position = UDim2.new(0.25, 0, 0.8, 0)
     FooterText.Size = UDim2.new(0.5, 0, 0.1, 0)
     FooterText.Font = Enum.Font.Gotham
-    FooterText.Text = "Thank you for using Zypherion ❤️"
+    FooterText.Text = "Thank you for using SwebScript ❤️"
     FooterText.TextColor3 = TEXT_COLOR
     FooterText.TextSize = 14
     
@@ -250,7 +250,7 @@ local function loadScript()
     CreditsText.Position = UDim2.new(0.25, 0, 0.9, 0)
     CreditsText.Size = UDim2.new(0.5, 0, 0.05, 0)
     CreditsText.Font = Enum.Font.Gotham
-    CreditsText.Text = "Made by NervigeMuecke"
+    CreditsText.Text = "Made by Sweb7xx"
     CreditsText.TextColor3 = Color3.fromRGB(150, 150, 150)
     CreditsText.TextSize = 12
     
@@ -260,7 +260,7 @@ local function loadScript()
     VersionText.Position = UDim2.new(0.8, 0, 0.9, 0)
     VersionText.Size = UDim2.new(0.15, 0, 0.05, 0)
     VersionText.Font = Enum.Font.Gotham
-    VersionText.Text = "v2.1.0"
+    VersionText.Text = "v1.0.0"
     VersionText.TextColor3 = Color3.fromRGB(150, 150, 150)
     VersionText.TextSize = 12
     VersionText.TextXAlignment = Enum.TextXAlignment.Right
@@ -505,7 +505,7 @@ local function loadScript()
         local loadingOverlay = createLoadingAnimation(Frame)
         
         delay(LOADING_TIME, function()
-            local success = loadScript("https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/Games/ZYPHERION%20Arsenal%20Beta.lua")
+            local success = loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/SwebScript_Arsenal.lua")
             loadingOverlay:Destroy()
             
             if success then
@@ -524,7 +524,7 @@ local function loadScript()
         local loadingOverlay = createLoadingAnimation(Frame)
         
         delay(LOADING_TIME, function()
-            local success = loadScript("https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/Games/ZYPHERION%20Rivals%20Beta.lua")
+            local success = loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/SwebScript_Rivals.lua")
             loadingOverlay:Destroy()
             
             if success then
@@ -549,7 +549,7 @@ local function loadScript()
     -- Check for updates
     delay(1, function()
         pcall(function()
-            loadScript("https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/Games/Test.lua")
+            loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/Updates.lua")
         end)
     end)
 end
@@ -560,9 +560,9 @@ local success, error = pcall(function()
 end)
 
 if not success then
-    warn("Error loading Zypherion GUI: " .. tostring(error))
+    warn("Error loading SwebScript GUI: " .. tostring(error))
     -- Fallback to original script if our enhanced version fails
     pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/ZYPHERION/refs/heads/main/Games/other.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/fallback.lua"))()
     end)
 end

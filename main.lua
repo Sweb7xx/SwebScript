@@ -1,568 +1,242 @@
 local function loadScript()
-    -- Services
-    local Players = game:GetService("Players")
-    local UserInputService = game:GetService("UserInputService")
-    local TweenService = game:GetService("TweenService")
-    local RunService = game:GetService("RunService")
-    local HttpService = game:GetService("HttpService")
-    
-    -- Constants
-    local MAIN_COLOR = Color3.fromRGB(0, 0, 0)
-    local ACCENT_COLOR = Color3.fromRGB(255, 0, 4)
-    local SECONDARY_COLOR = Color3.fromRGB(29, 29, 29)
-    local TEXT_COLOR = Color3.fromRGB(255, 255, 255)
-    local TWEEN_TIME = 0.3
-    local LOADING_TIME = 2
-    
-    -- Variables
-    local Player = Players.LocalPlayer
-    local dragging, dragInput, dragStart, startPos
-    
-    -- Create GUI
+    -- Instances
     local ScreenGui = Instance.new("ScreenGui")
     local Frame = Instance.new("Frame")
     local UICorner = Instance.new("UICorner")
-    local TopBar = Instance.new("Frame")
-    local UICorner_TopBar = Instance.new("UICorner")
-    local Title = Instance.new("TextLabel")
-    local CloseButton = Instance.new("TextButton")
-    local UICorner_Close = Instance.new("UICorner")
-    local MinimizeButton = Instance.new("TextButton")
-    local UICorner_Minimize = Instance.new("UICorner")
-    local Logo = Instance.new("ImageLabel")
-    local ContentFrame = Instance.new("Frame")
-    local UICorner_Content = Instance.new("UICorner")
-    
-    -- Arsenal Section
-    local ArsenalFrame = Instance.new("Frame")
-    local UICorner_Arsenal = Instance.new("UICorner")
-    local ArsenalTitle = Instance.new("TextLabel")
-    local ArsenalDescription = Instance.new("TextLabel")
-    local ArsenalLoadButton = Instance.new("TextButton")
-    local UICorner_ArsenalLoad = Instance.new("UICorner")
-    
-    -- Rivals Section
-    local RivalsFrame = Instance.new("Frame")
-    local UICorner_Rivals = Instance.new("UICorner")
-    local RivalsTitle = Instance.new("TextLabel")
-    local RivalsDescription = Instance.new("TextLabel")
-    local RivalsLoadButton = Instance.new("TextButton")
-    local UICorner_RivalsLoad = Instance.new("UICorner")
-    
-    -- Footer
-    local FooterText = Instance.new("TextLabel")
-    local CreditsText = Instance.new("TextLabel")
-    local VersionText = Instance.new("TextLabel")
-    
-    -- Set up ScreenGui
-    ScreenGui.Name = "SwebScriptGUI"
-    ScreenGui.Parent = Player:WaitForChild("PlayerGui")
+    local Frame_2 = Instance.new("Frame")
+    local TextButton = Instance.new("TextButton")
+    local UICorner_2 = Instance.new("UICorner")
+    local UICorner_3 = Instance.new("UICorner")
+    local TextLabel = Instance.new("TextLabel")
+    local Frame_3 = Instance.new("Frame")
+    local TextButton_2 = Instance.new("TextButton")
+    local UICorner_4 = Instance.new("UICorner")
+    local UICorner_5 = Instance.new("UICorner")
+    local TextLabel_2 = Instance.new("TextLabel")
+    local TextButton_3 = Instance.new("TextButton")
+    local UICorner_6 = Instance.new("UICorner")
+    local TextLabel_3 = Instance.new("TextLabel")
+    local TextLabel_4 = Instance.new("TextLabel")
+    local TextLabel_5 = Instance.new("TextLabel")
+    local TextLabel_6 = Instance.new("TextLabel")
+
+    -- Properties
+    ScreenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.DisplayOrder = 9999
-    ScreenGui.ResetOnSpawn = false
-    
-    -- Main Frame
-    Frame.Name = "MainFrame"
+
     Frame.Parent = ScreenGui
     Frame.Active = true
-    Frame.BackgroundColor3 = MAIN_COLOR
+    Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Frame.BorderSizePixel = 0
-    Frame.Position = UDim2.new(0.5, -245, 0.5, -215)
-    Frame.Size = UDim2.new(0, 490, 0, 430)
-    Frame.ClipsDescendants = true
-    
+    Frame.Position = UDim2.new(0.307, 0, 0.223, 0)
+    Frame.Size = UDim2.new(0, 491, 0, 433)
+
     UICorner.CornerRadius = UDim.new(0.03, 0)
     UICorner.Parent = Frame
+
+    Frame_2.Parent = Frame
+    Frame_2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+    Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Frame_2.BorderSizePixel = 0
+    Frame_2.Position = UDim2.new(0.049, 0, 0.31, 0)
+    Frame_2.Size = UDim2.new(0, 439, 0, 83)
+
+    TextButton.Parent = Frame_2
+    TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+    TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton.BorderSizePixel = 0
+    TextButton.Position = UDim2.new(0.631, 0, 0.17, 0)
+    TextButton.Size = UDim2.new(0, 144, 0, 53)
+    TextButton.Font = Enum.Font.Roboto
+    TextButton.Text = "Load"
+    TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton.TextSize = 32
+
+    UICorner_2.Parent = TextButton
+    UICorner_3.Parent = Frame_2
+
+    TextLabel.Parent = Frame_2
+    TextLabel.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+    TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(0.036, 0, 0.169, 0)
+    TextLabel.Size = UDim2.new(0, 203, 0, 52)
+    TextLabel.Font = Enum.Font.Ubuntu
+    TextLabel.Text = "SwebScript Arsenal Beta"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextSize = 17
+
+    Frame_3.Parent = Frame
+    Frame_3.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+    Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Frame_3.BorderSizePixel = 0
+    Frame_3.Position = UDim2.new(0.049, 0, 0.591, 0)
+    Frame_3.Size = UDim2.new(0, 439, 0, 83)
+
+    TextButton_2.Parent = Frame_3
+    TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+    TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton_2.BorderSizePixel = 0
+    TextButton_2.Position = UDim2.new(0.631, 0, 0.17, 0)
+    TextButton_2.Size = UDim2.new(0, 144, 0, 53)
+    TextButton_2.Font = Enum.Font.Roboto
+    TextButton_2.Text = "Load"
+    TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton_2.TextSize = 32
+
+    UICorner_4.Parent = TextButton_2
+    UICorner_5.Parent = Frame_3
+
+    TextLabel_2.Parent = Frame_3
+    TextLabel_2.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+    TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_2.BorderSizePixel = 0
+    TextLabel_2.Position = UDim2.new(0.036, 0, 0.169, 0)
+    TextLabel_2.Size = UDim2.new(0, 203, 0, 52)
+    TextLabel_2.Font = Enum.Font.Ubuntu
+    TextLabel_2.Text = "SwebScript Rivals Beta"
+    TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_2.TextSize = 17
+
+    TextButton_3.Parent = Frame
+    TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+    TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton_3.BorderSizePixel = 0
+    TextButton_3.Position = UDim2.new(0.943, 0, 0.031, 0)
+    TextButton_3.Size = UDim2.new(0, 17, 0, 17)
+    TextButton_3.Font = Enum.Font.SourceSans
+    TextButton_3.Text = ""
+    TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+    TextButton_3.TextSize = 14
+
+    UICorner_6.CornerRadius = UDim.new(1, 0)
+    UICorner_6.Parent = TextButton_3
+
+    TextLabel_3.Parent = Frame
+    TextLabel_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_3.BorderSizePixel = 0
+    TextLabel_3.Position = UDim2.new(0.08, 0, 0.107, 0)
+    TextLabel_3.Size = UDim2.new(0, 47, 0, 64)
+    TextLabel_3.Font = Enum.Font.FredokaOne
+    TextLabel_3.Text = "SWEBSCRIPT"
+    TextLabel_3.TextColor3 = Color3.fromRGB(255, 0, 0)
+    TextLabel_3.TextSize = 18
+
+    TextLabel_4.Parent = TextLabel_3
+    TextLabel_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_4.BorderSizePixel = 0
+    TextLabel_4.Position = UDim2.new(-0.141, 0, -0.626, 0)
+    TextLabel_4.Size = UDim2.new(0, 47, 0, 64)
+    TextLabel_4.Font = Enum.Font.Bangers
+    TextLabel_4.Text = "S"
+    TextLabel_4.TextColor3 = Color3.fromRGB(255, 0, 0)
+    TextLabel_4.TextSize = 61
+
+    TextLabel_5.Parent = Frame
+    TextLabel_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_5.BorderSizePixel = 0
+    TextLabel_5.Position = UDim2.new(0.295315683, 0, 0.856812954, 0)
+    TextLabel_5.Size = UDim2.new(0, 200, 0, 50)
+    TextLabel_5.Font = Enum.Font.SourceSans
+    TextLabel_5.Text = "Thank you for using SwebScript<3"
+    TextLabel_5.TextColor3 = Color3.fromRGB(217, 217, 217)
+    TextLabel_5.TextSize = 14.000
     
-    -- Top Bar
-    TopBar.Name = "TopBar"
-    TopBar.Parent = Frame
-    TopBar.BackgroundColor3 = SECONDARY_COLOR
-    TopBar.BorderSizePixel = 0
-    TopBar.Size = UDim2.new(1, 0, 0, 40)
-    
-    UICorner_TopBar.CornerRadius = UDim.new(0.03, 0)
-    UICorner_TopBar.Parent = TopBar
-    
-    Title.Name = "Title"
-    Title.Parent = TopBar
-    Title.BackgroundTransparency = 1
-    Title.Position = UDim2.new(0.1, 0, 0, 0)
-    Title.Size = UDim2.new(0.8, 0, 1, 0)
-    Title.Font = Enum.Font.GothamBold
-    Title.Text = "SWEBSCRIPT"
-    Title.TextColor3 = ACCENT_COLOR
-    Title.TextSize = 22
-    
-    CloseButton.Name = "CloseButton"
-    CloseButton.Parent = TopBar
-    CloseButton.BackgroundColor3 = ACCENT_COLOR
-    CloseButton.BorderSizePixel = 0
-    CloseButton.Position = UDim2.new(0.95, -15, 0.5, -8)
-    CloseButton.Size = UDim2.new(0, 16, 0, 16)
-    CloseButton.Font = Enum.Font.GothamBold
-    CloseButton.Text = "X"
-    CloseButton.TextColor3 = MAIN_COLOR
-    CloseButton.TextSize = 14
-    
-    UICorner_Close.CornerRadius = UDim.new(1, 0)
-    UICorner_Close.Parent = CloseButton
-    
-    MinimizeButton.Name = "MinimizeButton"
-    MinimizeButton.Parent = TopBar
-    MinimizeButton.BackgroundColor3 = SECONDARY_COLOR
-    MinimizeButton.BorderSizePixel = 0
-    MinimizeButton.Position = UDim2.new(0.88, -15, 0.5, -8)
-    MinimizeButton.Size = UDim2.new(0, 16, 0, 16)
-    MinimizeButton.Font = Enum.Font.GothamBold
-    MinimizeButton.Text = "-"
-    MinimizeButton.TextColor3 = TEXT_COLOR
-    MinimizeButton.TextSize = 14
-    
-    UICorner_Minimize.CornerRadius = UDim.new(1, 0)
-    UICorner_Minimize.Parent = MinimizeButton
-    
-    -- Logo (optional - replace with your own image ID)
-    Logo.Name = "Logo"
-    Logo.Parent = TopBar
-    Logo.BackgroundTransparency = 1
-    Logo.Position = UDim2.new(0.02, 0, 0.5, -15)
-    Logo.Size = UDim2.new(0, 30, 0, 30)
-    Logo.Image = "rbxassetid://11419713314" -- Replace with your logo
-    
-    -- Content Frame
-    ContentFrame.Name = "ContentFrame"
-    ContentFrame.Parent = Frame
-    ContentFrame.BackgroundTransparency = 1
-    ContentFrame.Position = UDim2.new(0, 0, 0, 40)
-    ContentFrame.Size = UDim2.new(1, 0, 1, -40)
-    
-    -- Arsenal Section
-    ArsenalFrame.Name = "ArsenalFrame"
-    ArsenalFrame.Parent = ContentFrame
-    ArsenalFrame.BackgroundColor3 = SECONDARY_COLOR
-    ArsenalFrame.BorderSizePixel = 0
-    ArsenalFrame.Position = UDim2.new(0.05, 0, 0.1, 0)
-    ArsenalFrame.Size = UDim2.new(0.9, 0, 0.25, 0)
-    
-    UICorner_Arsenal.CornerRadius = UDim.new(0.1, 0)
-    UICorner_Arsenal.Parent = ArsenalFrame
-    
-    ArsenalTitle.Name = "ArsenalTitle"
-    ArsenalTitle.Parent = ArsenalFrame
-    ArsenalTitle.BackgroundTransparency = 1
-    ArsenalTitle.Position = UDim2.new(0.05, 0, 0.1, 0)
-    ArsenalTitle.Size = UDim2.new(0.6, 0, 0.4, 0)
-    ArsenalTitle.Font = Enum.Font.GothamBold
-    ArsenalTitle.Text = "SwebScript Arsenal"
-    ArsenalTitle.TextColor3 = TEXT_COLOR
-    ArsenalTitle.TextSize = 18
-    ArsenalTitle.TextXAlignment = Enum.TextXAlignment.Left
-    
-    ArsenalDescription.Name = "ArsenalDescription"
-    ArsenalDescription.Parent = ArsenalFrame
-    ArsenalDescription.BackgroundTransparency = 1
-    ArsenalDescription.Position = UDim2.new(0.05, 0, 0.5, 0)
-    ArsenalDescription.Size = UDim2.new(0.6, 0, 0.4, 0)
-    ArsenalDescription.Font = Enum.Font.Gotham
-    ArsenalDescription.Text = "Advanced Arsenal script with aimbot, ESP, and more features"
-    ArsenalDescription.TextColor3 = Color3.fromRGB(200, 200, 200)
-    ArsenalDescription.TextSize = 12
-    ArsenalDescription.TextWrapped = true
-    ArsenalDescription.TextXAlignment = Enum.TextXAlignment.Left
-    
-    ArsenalLoadButton.Name = "ArsenalLoadButton"
-    ArsenalLoadButton.Parent = ArsenalFrame
-    ArsenalLoadButton.BackgroundColor3 = ACCENT_COLOR
-    ArsenalLoadButton.BorderSizePixel = 0
-    ArsenalLoadButton.Position = UDim2.new(0.7, 0, 0.2, 0)
-    ArsenalLoadButton.Size = UDim2.new(0.25, 0, 0.6, 0)
-    ArsenalLoadButton.Font = Enum.Font.GothamBold
-    ArsenalLoadButton.Text = "LOAD"
-    ArsenalLoadButton.TextColor3 = MAIN_COLOR
-    ArsenalLoadButton.TextSize = 16
-    
-    UICorner_ArsenalLoad.CornerRadius = UDim.new(0.2, 0)
-    UICorner_ArsenalLoad.Parent = ArsenalLoadButton
-    
-    -- Rivals Section
-    RivalsFrame.Name = "RivalsFrame"
-    RivalsFrame.Parent = ContentFrame
-    RivalsFrame.BackgroundColor3 = SECONDARY_COLOR
-    RivalsFrame.BorderSizePixel = 0
-    RivalsFrame.Position = UDim2.new(0.05, 0, 0.4, 0)
-    RivalsFrame.Size = UDim2.new(0.9, 0, 0.25, 0)
-    
-    UICorner_Rivals.CornerRadius = UDim.new(0.1, 0)
-    UICorner_Rivals.Parent = RivalsFrame
-    
-    RivalsTitle.Name = "RivalsTitle"
-    RivalsTitle.Parent = RivalsFrame
-    RivalsTitle.BackgroundTransparency = 1
-    RivalsTitle.Position = UDim2.new(0.05, 0, 0.1, 0)
-    RivalsTitle.Size = UDim2.new(0.6, 0, 0.4, 0)
-    RivalsTitle.Font = Enum.Font.GothamBold
-    RivalsTitle.Text = "SwebScript Rivals"
-    RivalsTitle.TextColor3 = TEXT_COLOR
-    RivalsTitle.TextSize = 18
-    RivalsTitle.TextXAlignment = Enum.TextXAlignment.Left
-    
-    RivalsDescription.Name = "RivalsDescription"
-    RivalsDescription.Parent = RivalsFrame
-    RivalsDescription.BackgroundTransparency = 1
-    RivalsDescription.Position = UDim2.new(0.05, 0, 0.5, 0)
-    RivalsDescription.Size = UDim2.new(0.6, 0, 0.4, 0)
-    RivalsDescription.Font = Enum.Font.Gotham
-    RivalsDescription.Text = "Premium script for Rivals with silent aim, wallhack and more"
-    RivalsDescription.TextColor3 = Color3.fromRGB(200, 200, 200)
-    RivalsDescription.TextSize = 12
-    RivalsDescription.TextWrapped = true
-    RivalsDescription.TextXAlignment = Enum.TextXAlignment.Left
-    
-    RivalsLoadButton.Name = "RivalsLoadButton"
-    RivalsLoadButton.Parent = RivalsFrame
-    RivalsLoadButton.BackgroundColor3 = ACCENT_COLOR
-    RivalsLoadButton.BorderSizePixel = 0
-    RivalsLoadButton.Position = UDim2.new(0.7, 0, 0.2, 0)
-    RivalsLoadButton.Size = UDim2.new(0.25, 0, 0.6, 0)
-    RivalsLoadButton.Font = Enum.Font.GothamBold
-    RivalsLoadButton.Text = "LOAD"
-    RivalsLoadButton.TextColor3 = MAIN_COLOR
-    RivalsLoadButton.TextSize = 16
-    
-    UICorner_RivalsLoad.CornerRadius = UDim.new(0.2, 0)
-    UICorner_RivalsLoad.Parent = RivalsLoadButton
-    
-    -- Footer
-    FooterText.Name = "FooterText"
-    FooterText.Parent = ContentFrame
-    FooterText.BackgroundTransparency = 1
-    FooterText.Position = UDim2.new(0.25, 0, 0.8, 0)
-    FooterText.Size = UDim2.new(0.5, 0, 0.1, 0)
-    FooterText.Font = Enum.Font.Gotham
-    FooterText.Text = "Thank you for using SwebScript ❤️"
-    FooterText.TextColor3 = TEXT_COLOR
-    FooterText.TextSize = 14
-    
-    CreditsText.Name = "CreditsText"
-    CreditsText.Parent = ContentFrame
-    CreditsText.BackgroundTransparency = 1
-    CreditsText.Position = UDim2.new(0.25, 0, 0.9, 0)
-    CreditsText.Size = UDim2.new(0.5, 0, 0.05, 0)
-    CreditsText.Font = Enum.Font.Gotham
-    CreditsText.Text = "Made by Sweb7xx"
-    CreditsText.TextColor3 = Color3.fromRGB(150, 150, 150)
-    CreditsText.TextSize = 12
-    
-    VersionText.Name = "VersionText"
-    VersionText.Parent = ContentFrame
-    VersionText.BackgroundTransparency = 1
-    VersionText.Position = UDim2.new(0.8, 0, 0.9, 0)
-    VersionText.Size = UDim2.new(0.15, 0, 0.05, 0)
-    VersionText.Font = Enum.Font.Gotham
-    VersionText.Text = "v1.0.0"
-    VersionText.TextColor3 = Color3.fromRGB(150, 150, 150)
-    VersionText.TextSize = 12
-    VersionText.TextXAlignment = Enum.TextXAlignment.Right
-    
+    TextLabel_6.Parent = Frame
+    TextLabel_6.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TextLabel_6.BorderSizePixel = 0
+    TextLabel_6.Position = UDim2.new(0.592667997, 0, 0.868360281, 0)
+    TextLabel_6.Size = UDim2.new(0, 200, 0, 50)
+    TextLabel_6.Visible = false
+    TextLabel_6.Font = Enum.Font.SourceSans
+    TextLabel_6.Text = "Made by Sweb7xx"
+    TextLabel_6.TextColor3 = Color3.fromRGB(217, 217, 217)
+    TextLabel_6.TextSize = 14.000
+
     -- Functions
-    local function createRippleEffect(button)
-        button.ClipsDescendants = true
-        
-        button.MouseButton1Down:Connect(function(x, y)
-            local ripple = Instance.new("Frame")
-            ripple.Name = "Ripple"
-            ripple.Parent = button
-            ripple.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ripple.BackgroundTransparency = 0.7
-            ripple.BorderSizePixel = 0
-            ripple.AnchorPoint = Vector2.new(0.5, 0.5)
-            ripple.Position = UDim2.new(0, x - button.AbsolutePosition.X, 0, y - button.AbsolutePosition.Y)
-            ripple.Size = UDim2.new(0, 0, 0, 0)
-            
-            local cornerRadius = Instance.new("UICorner")
-            cornerRadius.CornerRadius = UDim.new(1, 0)
-            cornerRadius.Parent = ripple
-            
-            local maxSize = math.max(button.AbsoluteSize.X, button.AbsoluteSize.Y) * 2
-            local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-            local tween = TweenService:Create(ripple, tweenInfo, {
-                Size = UDim2.new(0, maxSize, 0, maxSize),
-                BackgroundTransparency = 1
-            })
-            
-            tween:Play()
-            tween.Completed:Connect(function()
-                ripple:Destroy()
+    TextButton_3.MouseButton1Click:Connect(function()
+        ScreenGui:Destroy()
+    end)
+
+    local UserInputService = game:GetService("UserInputService")
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    local function Update(input)
+        local delta = input.Position - dragStart
+        Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+
+    Frame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = Frame.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
             end)
-        end)
-    end
-    
-    local function createLoadingAnimation(parent)
-        -- Create overlay
-        local overlay = Instance.new("Frame")
-        overlay.Name = "LoadingOverlay"
-        overlay.Size = UDim2.new(1, 0, 1, 0)
-        overlay.BackgroundColor3 = MAIN_COLOR
-        overlay.BackgroundTransparency = 0.2
-        overlay.ZIndex = 10
-        overlay.Parent = parent
-        
-        local uiCorner = Instance.new("UICorner")
-        uiCorner.CornerRadius = UDim.new(0.03, 0)
-        uiCorner.Parent = overlay
-        
-        -- Create loading text
-        local loadingText = Instance.new("TextLabel")
-        loadingText.Name = "LoadingText"
-        loadingText.Size = UDim2.new(1, 0, 0, 30)
-        loadingText.Position = UDim2.new(0, 0, 0.4, 0)
-        loadingText.BackgroundTransparency = 1
-        loadingText.TextColor3 = TEXT_COLOR
-        loadingText.Font = Enum.Font.GothamBold
-        loadingText.TextSize = 18
-        loadingText.Text = "Loading..."
-        loadingText.ZIndex = 11
-        loadingText.Parent = overlay
-        
-        -- Create loading bar background
-        local loadingBarBg = Instance.new("Frame")
-        loadingBarBg.Name = "LoadingBarBg"
-        loadingBarBg.Size = UDim2.new(0.7, 0, 0, 10)
-        loadingBarBg.Position = UDim2.new(0.15, 0, 0.5, 0)
-        loadingBarBg.BackgroundColor3 = SECONDARY_COLOR
-        loadingBarBg.ZIndex = 11
-        loadingBarBg.Parent = overlay
-        
-        local uiCornerBar = Instance.new("UICorner")
-        uiCornerBar.CornerRadius = UDim.new(1, 0)
-        uiCornerBar.Parent = loadingBarBg
-        
-        -- Create loading bar fill
-        local loadingBar = Instance.new("Frame")
-        loadingBar.Name = "LoadingBar"
-        loadingBar.Size = UDim2.new(0, 0, 1, 0)
-        loadingBar.BackgroundColor3 = ACCENT_COLOR
-        loadingBar.ZIndex = 12
-        loadingBar.Parent = loadingBarBg
-        
-        local uiCornerFill = Instance.new("UICorner")
-        uiCornerFill.CornerRadius = UDim.new(1, 0)
-        uiCornerFill.Parent = loadingBar
-        
-        -- Animate the loading bar
-        local tweenInfo = TweenInfo.new(LOADING_TIME, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
-        local tween = TweenService:Create(loadingBar, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
-        tween:Play()
-        
-        -- Return the overlay so it can be removed later
-        return overlay
-    end
-    
-    local function setupDragging()
-        local function update(input)
-            local delta = input.Position - dragStart
-            Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
         end
-        
-        TopBar.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                dragging = true
-                dragStart = input.Position
-                startPos = Frame.Position
-                
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then
-                        dragging = false
-                    end
-                end)
-            end
-        end)
-        
-        TopBar.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                dragInput = input
-            end
-        end)
-        
-        UserInputService.InputChanged:Connect(function(input)
-            if input == dragInput and dragging then
-                update(input)
-            end
-        end)
-    end
-    
-    local function loadScript(url)
-        local success, result = pcall(function()
-            return game:HttpGet(url)
-        end)
-        
-        if success then
-            local loadSuccess, loadError = pcall(function()
-                loadstring(result)()
-            end)
-            
-            if not loadSuccess then
-                warn("Failed to load script: " .. loadError)
-                return false
-            end
-            return true
-        else
-            warn("Failed to fetch script: " .. tostring(result))
-            return false
+    end)
+
+    Frame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
         end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            Update(input)
+        end
+    end)
+
+    local function CreateLoadingAnimation(parent)
+    	local LoadingFrame = Instance.new("Frame")
+    	LoadingFrame.Size = UDim2.new(1, 0, 1, 0)
+    	LoadingFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    	LoadingFrame.BackgroundTransparency = 0.5
+    	LoadingFrame.Parent = parent
+    
+    	local LoadingLabel = Instance.new("TextLabel")
+    	LoadingLabel.Text = "Loading..."
+    	LoadingLabel.Size = UDim2.new(1, 0, 0, 30)
+    	LoadingLabel.Position = UDim2.new(0, 0, 0.5, -15)
+    	LoadingLabel.BackgroundTransparency = 1
+    	LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    	LoadingLabel.Font = Enum.Font.GothamBold
+    	LoadingLabel.TextSize = 16
+    	LoadingLabel.Parent = LoadingFrame
+    
+    	return LoadingFrame
     end
-    
-    local function showNotification(message, isError)
-        local notification = Instance.new("Frame")
-        notification.Name = "Notification"
-        notification.Size = UDim2.new(0, 250, 0, 60)
-        notification.Position = UDim2.new(0.5, -125, 0, -70)
-        notification.BackgroundColor3 = isError and Color3.fromRGB(200, 30, 30) or Color3.fromRGB(30, 150, 30)
-        notification.BorderSizePixel = 0
-        notification.ZIndex = 100
-        notification.Parent = ScreenGui
-        
-        local uiCorner = Instance.new("UICorner")
-        uiCorner.CornerRadius = UDim.new(0.1, 0)
-        uiCorner.Parent = notification
-        
-        local notificationText = Instance.new("TextLabel")
-        notificationText.Size = UDim2.new(1, -20, 1, 0)
-        notificationText.Position = UDim2.new(0, 10, 0, 0)
-        notificationText.BackgroundTransparency = 1
-        notificationText.TextColor3 = Color3.fromRGB(255, 255, 255)
-        notificationText.Font = Enum.Font.GothamBold
-        notificationText.TextSize = 14
-        notificationText.Text = message
-        notificationText.TextWrapped = true
-        notificationText.ZIndex = 101
-        notificationText.Parent = notification
-        
-        -- Animate notification
-        TweenService:Create(notification, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), 
-            {Position = UDim2.new(0.5, -125, 0, 20)}):Play()
-        
-        delay(3, function()
-            TweenService:Create(notification, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In), 
-                {Position = UDim2.new(0.5, -125, 0, -70)}):Play()
-            
-            delay(0.5, function()
-                notification:Destroy()
-            end)
-        end)
-    end
-    
-    -- Initialize
-    setupDragging()
-    createRippleEffect(ArsenalLoadButton)
-    createRippleEffect(RivalsLoadButton)
-    createRippleEffect(CloseButton)
-    createRippleEffect(MinimizeButton)
-    
-    -- Button Hover Effects
-    local function setupButtonHover(button)
-        local originalColor = button.BackgroundColor3
-        local hoverColor = Color3.new(
-            math.min(originalColor.R * 1.2, 1),
-            math.min(originalColor.G * 1.2, 1),
-            math.min(originalColor.B * 1.2, 1)
-        )
-        
-        button.MouseEnter:Connect(function()
-            TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = hoverColor}):Play()
-        end)
-        
-        button.MouseLeave:Connect(function()
-            TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = originalColor}):Play()
-        end)
-    end
-    
-    setupButtonHover(ArsenalLoadButton)
-    setupButtonHover(RivalsLoadButton)
-    setupButtonHover(CloseButton)
-    setupButtonHover(MinimizeButton)
-    
-    -- Button Click Events
-    CloseButton.MouseButton1Click:Connect(function()
-        local closeTween = TweenService:Create(Frame, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.In), 
-            {Size = UDim2.new(0, 0, 0, 0), Position = UDim2.new(0.5, 0, 0.5, 0)})
-        closeTween:Play()
-        closeTween.Completed:Connect(function()
-            ScreenGui:Destroy()
-        end)
+
+    TextButton.MouseButton1Click:Connect(function()
+        local LoadingAnimation = CreateLoadingAnimation(Frame)
+        wait(2)
+        LoadingAnimation:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/refs/heads/main/Games/SwebScript_Arsenal.lua"))()
     end)
-    
-    local minimized = false
-    MinimizeButton.MouseButton1Click:Connect(function()
-        minimized = not minimized
-        local targetSize = minimized and UDim2.new(0, 490, 0, 40) or UDim2.new(0, 490, 0, 430)
-        TweenService:Create(Frame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), 
-            {Size = targetSize}):Play()
+
+    TextButton_2.MouseButton1Click:Connect(function()
+        local LoadingAnimation = CreateLoadingAnimation(Frame)
+        wait(2)
+        LoadingAnimation:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/refs/heads/main/Games/SwebScript_Rivals.lua"))()
     end)
-    
-    ArsenalLoadButton.MouseButton1Click:Connect(function()
-        local loadingOverlay = createLoadingAnimation(Frame)
-        
-        delay(LOADING_TIME, function()
-            local success = loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/SwebScript_Arsenal.lua")
-            loadingOverlay:Destroy()
-            
-            if success then
-                showNotification("Arsenal script loaded successfully!", false)
-                -- Close GUI after successful load
-                delay(1, function()
-                    CloseButton.MouseButton1Click:Fire()
-                end)
-            else
-                showNotification("Failed to load Arsenal script. Try again later.", true)
-            end
-        end)
-    end)
-    
-    RivalsLoadButton.MouseButton1Click:Connect(function()
-        local loadingOverlay = createLoadingAnimation(Frame)
-        
-        delay(LOADING_TIME, function()
-            local success = loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/SwebScript_Rivals.lua")
-            loadingOverlay:Destroy()
-            
-            if success then
-                showNotification("Rivals script loaded successfully!", false)
-                -- Close GUI after successful load
-                delay(1, function()
-                    CloseButton.MouseButton1Click:Fire()
-                end)
-            else
-                showNotification("Failed to load Rivals script. Try again later.", true)
-            end
-        end)
-    end)
-    
-    -- Entrance animation
-    Frame.Size = UDim2.new(0, 0, 0, 0)
-    Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-    
-    TweenService:Create(Frame, TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), 
-        {Size = UDim2.new(0, 490, 0, 430), Position = UDim2.new(0.5, -245, 0.5, -215)}):Play()
-    
-    -- Check for updates
-    delay(1, function()
-        pcall(function()
-            loadScript("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/Updates.lua")
-        end)
-    end)
+
+    wait(2)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/refs/heads/main/Games/Updates.lua"))()
 end
 
--- Execute the main function
-local success, error = pcall(function()
-    loadScript()
-end)
-
-if not success then
-    warn("Error loading SwebScript GUI: " .. tostring(error))
-    -- Fallback to original script if our enhanced version fails
-    pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/main/Games/fallback.lua"))()
-    end)
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sweb7xx/SwebScript/refs/heads/main/Games/fallback.lua"))()
+loadScript()
